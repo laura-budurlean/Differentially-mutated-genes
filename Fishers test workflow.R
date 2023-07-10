@@ -4,8 +4,8 @@ library(data.table)
 library(writexl)
 
 #Specify your population sizes
-Population 1 <- 100
-Population 2 <- 100
+Population_1 <- 100
+Population_2 <- 100
 
 # Load mutation table for population 1. The format is a tab delimited text file with column headers: Gene	Variant_Type	Sample_ID
 mutations1 <- fread("population1_mutations_for_Fishers_tests.txt")
@@ -38,10 +38,10 @@ for (i in seq_along(genes)) {
   
 # Calculate counts of mutated and non-mutated individuals for each population
      mutated_count1 <- sum(gene_mutations1$Variant_Type %in% c("DELETION", "INSERTION", "DUP/GAIN", "INVERSION")) # replace these with the names in the Variant_types column in your input gene list, mutations1.
-     not_mutated_count1 <- Population 1 - mutated_count1
+     not_mutated_count1 <- Population_1 - mutated_count1
      
      mutated_count2 <- sum(gene_mutations2$Variant_Type %in% c("DELETION", "INSERTION", "DUP/GAIN", "INVERSION")) # replace these with the names in the Variant_types column in your input gene list, mutations2.
-     not_mutated_count2 <- Population 2 - mutated_count2
+     not_mutated_count2 <- Population_2 - mutated_count2
      
  # Create contingency table
      table <- matrix(

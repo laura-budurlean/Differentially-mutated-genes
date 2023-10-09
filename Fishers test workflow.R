@@ -107,7 +107,7 @@ write_xlsx(results, "Fishers_results.xlsx")
 
 
 
-##################################CHi-SQUARE AND CORRECTION ##############################
+##################################CHI-SQUARE AND CORRECTION ##############################
 # Instead of Fishers test, you may wish to perform chi-square test on each contingency table if applicable.
 results_chi_sq <- lapply(tables, chisq.test)
 
